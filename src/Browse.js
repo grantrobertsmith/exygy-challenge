@@ -24,10 +24,7 @@ class Browse extends React.Component {
 
   render() {
     console.log('rendering', this.state.documents.length);
-    const documentListHtml = this.state.documents.map(document => {
-      console.log(document);
-
-      return
+    let documentListHtml = this.state.documents.map(document => 
       (
         <div key={document.id} href="#" className={"slat row align-middle collapse  " + document.type} data-ref>
           <div className="slat-avatar item-avatar">
@@ -88,8 +85,8 @@ class Browse extends React.Component {
             </span>
           </div>
         </div>
-      );
-    });
+      )
+    );
 
     return (
       <div>
