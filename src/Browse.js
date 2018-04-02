@@ -1,7 +1,12 @@
 import React from 'react';
 import logo from './exygy.svg';
+import { documentList } from './documentList';
 
 class Browse extends React.Component {
+  updateDocumentList() {
+    documentList.update();
+  }
+
   render() {
     return (
       <div>
@@ -418,7 +423,7 @@ class Browse extends React.Component {
                     <svg>
                       <use xlinkHref="#i-search" />
                     </svg>
-                  </span>  <input type="text" id="textInput" className="search-box " placeholder="true" />
+                  </span>  <input type="text" id="textInput" className="search-box " placeholder="true" onFocus={this.updateDocumentList} onChange={this.filterList} />
                   <span className="ui-icon i-medium-gray i-base search-box-close-icon">
                     <svg>
                       <use xlinkHref="#i-close-large" />
