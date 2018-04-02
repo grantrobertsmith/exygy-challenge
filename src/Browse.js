@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './react.svg';
+import logo from './exygy.svg';
 
 class Browse extends React.Component {
   render() {

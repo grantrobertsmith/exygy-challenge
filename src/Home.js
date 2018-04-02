@@ -367,7 +367,7 @@ class Home extends React.Component {
             <nav className="main-navigation">
               <ul className="menu">
                 <li id="nav-item-browse" className="  ">
-                  <a href="browse.html">
+                  <a href="/browse">
                     <span>Browse</span>
                   </a>
                 </li>    </ul>
