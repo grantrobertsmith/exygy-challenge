@@ -9,6 +9,7 @@ class Browse extends React.Component {
     this.state = {
       documents: []
     }
+
     this.updateDocumentList = this.updateDocumentList.bind(this);
   }
 
@@ -23,14 +24,13 @@ class Browse extends React.Component {
   }
 
   render() {
-    console.log('rendering', this.state.documents.length);
-    let documentListHtml = this.state.documents.map(document => 
+    const documentListHtml = this.state.documents.map(document => 
       (
-        <div key={document.id} href="#" className={"slat row align-middle collapse  " + document.type} data-ref>
+        <div key={document.id} href="#" className={"slat row align-middle collapse  " + document.document_type} data-ref>
           <div className="slat-avatar item-avatar">
-            <span className={"ui-icon i-" + document.type + " i-xlarge "}>
+            <span className={"ui-icon i-" + document.document_type + " i-xlarge "}>
               <svg>
-                <use xlinkHref={"#i-file-" + document.type} />
+                <use xlinkHref={"#i-file-" + document.document_type} />
               </svg>
             </span></div>
           <div className="slat-body expand columns">
