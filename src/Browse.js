@@ -28,12 +28,13 @@ class Browse extends React.Component {
   }
 
   render() {
+    console.log('rendering', this.state.documents.length);
     const documentListHtml = this.state.documents.map(document => {
       console.log(document);
 
       return
       (
-        <div href="#" className={"slat row align-middle collapse  " + document.type} data-ref>
+        <div key={document.id} href="#" className={"slat row align-middle collapse  " + document.type} data-ref>
           <div className="slat-avatar item-avatar">
             <span className={"ui-icon i-" + document.type + " i-xlarge "}>
               <svg>
@@ -43,14 +44,14 @@ class Browse extends React.Component {
           <div className="slat-body expand columns">
             <div className="rows"> {/* slat-header */}
               <div className="columns small-12">
-                <h3 className="slat-header">List and description of investigators and sites - 234567 - 00000003548</h3>
+                <h3 className="slat-header">{document.name}</h3>
               </div>
             </div>
             <div className="row slat-subtitle"> {/* slat-title */}
               <div className="columns small-12">
                 <p className="slat-title-wrapper">
                   <span className="slat-subtitle-prefix">Title:</span>
-                  <span className="slat-subtitle-text">16.1.4 List of Investigators</span>
+                  <span className="slat-subtitle-text">{document.title}</span>
                 </p>
               </div>
             </div>
@@ -58,21 +59,21 @@ class Browse extends React.Component {
               <div className="columns small-12 medium-6">
                 <p className="slat-attr-wrapper">
                   <span className="slat-attr-key">Modified By:</span>
-                  <span className="slat-attr-value">Sophia Bishop</span>
+                  <span className="slat-attr-value">{document.modified_by}</span>
                 </p>
                 <p className="slat-attr-wrapper">
                   <span className="slat-attr-key">Last Modified:</span>
-                  <span className="slat-attr-value">08/08/2016</span>
+                  <span className="slat-attr-value">{(document.updated_at)}</span>
                 </p>
               </div>
               <div className="columns small-12 medium-6">
                 <p className="slat-attr-wrapper">
                   <span className="slat-attr-key">Status:</span>
-                  <span className="slat-attr-value">Final</span>
+                  <span className="slat-attr-value">{document.status}</span>
                 </p>
                 <p className="slat-attr-wrapper">
                   <span className="slat-attr-key">Country:</span>
-                  <span className="slat-attr-value">Germany</span>
+                  <span className="slat-attr-value">{document.country}</span>
                 </p>
               </div>
             </div>
@@ -517,530 +518,7 @@ class Browse extends React.Component {
                     </svg>
                   </span></div>    </div>
               <div className="browse-stage">
-                <div className="browse-slat-set">
-                  <div href="#" className="slat row align-middle collapse  excel" data-ref>
-                    <div className="slat-avatar item-avatar">
-                      <span className="ui-icon i-excel i-xlarge ">
-                        <svg>
-                          <use xlinkHref="#i-file-excel" />
-                        </svg>
-                      </span></div>
-                    <div className="slat-body expand columns">
-                      <div className="rows"> {/* slat-header */}
-                        <div className="columns small-12">
-                          <h3 className="slat-header">List and description of investigators and sites - 234567 - 00000003548</h3>
-                        </div>
-                      </div>
-                      <div className="row slat-subtitle"> {/* slat-title */}
-                        <div className="columns small-12">
-                          <p className="slat-title-wrapper">
-                            <span className="slat-subtitle-prefix">Title:</span>
-                            <span className="slat-subtitle-text">16.1.4 List of Investigators</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row show-for-medium">
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Modified By:</span>
-                            <span className="slat-attr-value">Sophia Bishop</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Last Modified:</span>
-                            <span className="slat-attr-value">08/08/2016</span>
-                          </p>
-                        </div>
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Status:</span>
-                            <span className="slat-attr-value">Final</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Country:</span>
-                            <span className="slat-attr-value">Germany</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slat-secondary columns shrink">
-                      <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-icon">
-                        <svg>
-                          <use xlinkHref="#i-star" />
-                        </svg>
-                      </span>
-                      <span className="float-right slat-dropdown">
-                        <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-more">
-                          <svg>
-                            <use xlinkHref="#i-more-vert" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>            <div href="#" className="slat row align-middle collapse  word" data-ref>
-                    <div className="slat-avatar item-avatar">
-                      <span className="ui-icon i-word i-xlarge ">
-                        <svg>
-                          <use xlinkHref="#i-file-word" />
-                        </svg>
-                      </span></div>
-                    <div className="slat-body expand columns">
-                      <div className="rows"> {/* slat-header */}
-                        <div className="columns small-12">
-                          <h3 className="slat-header">Clinical Summary - 25399</h3>
-                        </div>
-                      </div>
-                      <div className="row slat-subtitle"> {/* slat-title */}
-                        <div className="columns small-12">
-                          <p className="slat-title-wrapper">
-                            <span className="slat-subtitle-prefix">Title:</span>
-                            <span className="slat-subtitle-text">Clinical Summary of Efficacy and Safety for Ibuprofen</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row show-for-medium">
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Modified By:</span>
-                            <span className="slat-attr-value">Lura Brown</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Last Modified:</span>
-                            <span className="slat-attr-value">08/08/2016</span>
-                          </p>
-                        </div>
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Status:</span>
-                            <span className="slat-attr-value">Final</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Country:</span>
-                            <span className="slat-attr-value">United States</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slat-secondary columns shrink">
-                      <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-icon">
-                        <svg>
-                          <use xlinkHref="#i-star" />
-                        </svg>
-                      </span>
-                      <span className="float-right slat-dropdown">
-                        <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-more">
-                          <svg>
-                            <use xlinkHref="#i-more-vert" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>            <div href="#" className="slat row align-middle collapse  pdf" data-ref>
-                    <div className="slat-avatar item-avatar">
-                      <span className="ui-icon i-pdf i-xlarge ">
-                        <svg>
-                          <use xlinkHref="#i-file-pdf" />
-                        </svg>
-                      </span></div>
-                    <div className="slat-body expand columns">
-                      <div className="rows"> {/* slat-header */}
-                        <div className="columns small-12">
-                          <h3 className="slat-header">Approval Letter</h3>
-                        </div>
-                      </div>
-                      <div className="row slat-subtitle"> {/* slat-title */}
-                        <div className="columns small-12">
-                          <p className="slat-title-wrapper">
-                            <span className="slat-subtitle-prefix">Title:</span>
-                            <span className="slat-subtitle-text">NDA 94623</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row show-for-medium">
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Modified By:</span>
-                            <span className="slat-attr-value">Steven Aguilar</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Last Modified:</span>
-                            <span className="slat-attr-value">08/08/2016</span>
-                          </p>
-                        </div>
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Status:</span>
-                            <span className="slat-attr-value">Final</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Country:</span>
-                            <span className="slat-attr-value">Germany</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slat-secondary columns shrink">
-                      <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-icon">
-                        <svg>
-                          <use xlinkHref="#i-star" />
-                        </svg>
-                      </span>
-                      <span className="float-right slat-dropdown">
-                        <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-more">
-                          <svg>
-                            <use xlinkHref="#i-more-vert" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>            <div href="#" className="slat row align-middle collapse  word" data-ref>
-                    <div className="slat-avatar item-avatar">
-                      <span className="ui-icon i-word i-xlarge ">
-                        <svg>
-                          <use xlinkHref="#i-file-word" />
-                        </svg>
-                      </span></div>
-                    <div className="slat-body expand columns">
-                      <div className="rows"> {/* slat-header */}
-                        <div className="columns small-12">
-                          <h3 className="slat-header">Approval Letter</h3>
-                        </div>
-                      </div>
-                      <div className="row slat-subtitle"> {/* slat-title */}
-                        <div className="columns small-12">
-                          <p className="slat-title-wrapper">
-                            <span className="slat-subtitle-prefix">Title:</span>
-                            <span className="slat-subtitle-text">NDA 94623</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row show-for-medium">
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Modified By:</span>
-                            <span className="slat-attr-value">Jimmy Townsend</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Last Modified:</span>
-                            <span className="slat-attr-value">08/08/2016</span>
-                          </p>
-                        </div>
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Status:</span>
-                            <span className="slat-attr-value">Final</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Country:</span>
-                            <span className="slat-attr-value">Germany, United States</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slat-secondary columns shrink">
-                      <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-icon">
-                        <svg>
-                          <use xlinkHref="#i-star" />
-                        </svg>
-                      </span>
-                      <span className="float-right slat-dropdown">
-                        <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-more">
-                          <svg>
-                            <use xlinkHref="#i-more-vert" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>            <div href="#" className="slat row align-middle collapse  excel" data-ref>
-                    <div className="slat-avatar item-avatar">
-                      <span className="ui-icon i-excel i-xlarge ">
-                        <svg>
-                          <use xlinkHref="#i-file-excel" />
-                        </svg>
-                      </span></div>
-                    <div className="slat-body expand columns">
-                      <div className="rows"> {/* slat-header */}
-                        <div className="columns small-12">
-                          <h3 className="slat-header">Approval Letter</h3>
-                        </div>
-                      </div>
-                      <div className="row slat-subtitle"> {/* slat-title */}
-                        <div className="columns small-12">
-                          <p className="slat-title-wrapper">
-                            <span className="slat-subtitle-prefix">Title:</span>
-                            <span className="slat-subtitle-text">NDA 94623</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row show-for-medium">
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Modified By:</span>
-                            <span className="slat-attr-value">Sophia Bishop</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Last Modified:</span>
-                            <span className="slat-attr-value">08/08/2016</span>
-                          </p>
-                        </div>
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Status:</span>
-                            <span className="slat-attr-value">Final</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Country:</span>
-                            <span className="slat-attr-value">Germany</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slat-secondary columns shrink">
-                      <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-icon">
-                        <svg>
-                          <use xlinkHref="#i-star" />
-                        </svg>
-                      </span>
-                      <span className="float-right slat-dropdown">
-                        <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-more">
-                          <svg>
-                            <use xlinkHref="#i-more-vert" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>            <div href="#" className="slat row align-middle collapse  excel" data-ref>
-                    <div className="slat-avatar item-avatar">
-                      <span className="ui-icon i-excel i-xlarge ">
-                        <svg>
-                          <use xlinkHref="#i-file-excel" />
-                        </svg>
-                      </span></div>
-                    <div className="slat-body expand columns">
-                      <div className="rows"> {/* slat-header */}
-                        <div className="columns small-12">
-                          <h3 className="slat-header">List and description of investigators and sites - 234567 - 00000003548</h3>
-                        </div>
-                      </div>
-                      <div className="row slat-subtitle"> {/* slat-title */}
-                        <div className="columns small-12">
-                          <p className="slat-title-wrapper">
-                            <span className="slat-subtitle-prefix">Title:</span>
-                            <span className="slat-subtitle-text">16.1.4 List of Investigators</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row show-for-medium">
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Modified By:</span>
-                            <span className="slat-attr-value">Lura Brown</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Last Modified:</span>
-                            <span className="slat-attr-value">08/08/2016</span>
-                          </p>
-                        </div>
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Status:</span>
-                            <span className="slat-attr-value">Final</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Country:</span>
-                            <span className="slat-attr-value">United States</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slat-secondary columns shrink">
-                      <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-icon">
-                        <svg>
-                          <use xlinkHref="#i-star" />
-                        </svg>
-                      </span>
-                      <span className="float-right slat-dropdown">
-                        <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-more">
-                          <svg>
-                            <use xlinkHref="#i-more-vert" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>            <div href="#" className="slat row align-middle collapse  word" data-ref>
-                    <div className="slat-avatar item-avatar">
-                      <span className="ui-icon i-word i-xlarge ">
-                        <svg>
-                          <use xlinkHref="#i-file-word" />
-                        </svg>
-                      </span></div>
-                    <div className="slat-body expand columns">
-                      <div className="rows"> {/* slat-header */}
-                        <div className="columns small-12">
-                          <h3 className="slat-header">Clinical Summary - 25399</h3>
-                        </div>
-                      </div>
-                      <div className="row slat-subtitle"> {/* slat-title */}
-                        <div className="columns small-12">
-                          <p className="slat-title-wrapper">
-                            <span className="slat-subtitle-prefix">Title:</span>
-                            <span className="slat-subtitle-text">Clinical Summary of Efficacy and Safety for Ibuprofen</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row show-for-medium">
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Modified By:</span>
-                            <span className="slat-attr-value">Steven Aguilar</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Last Modified:</span>
-                            <span className="slat-attr-value">08/08/2016</span>
-                          </p>
-                        </div>
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Status:</span>
-                            <span className="slat-attr-value">Final</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Country:</span>
-                            <span className="slat-attr-value">Germany</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slat-secondary columns shrink">
-                      <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-icon">
-                        <svg>
-                          <use xlinkHref="#i-star" />
-                        </svg>
-                      </span>
-                      <span className="float-right slat-dropdown">
-                        <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-more">
-                          <svg>
-                            <use xlinkHref="#i-more-vert" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>            <div href="#" className="slat row align-middle collapse  excel" data-ref>
-                    <div className="slat-avatar item-avatar">
-                      <span className="ui-icon i-excel i-xlarge ">
-                        <svg>
-                          <use xlinkHref="#i-file-excel" />
-                        </svg>
-                      </span></div>
-                    <div className="slat-body expand columns">
-                      <div className="rows"> {/* slat-header */}
-                        <div className="columns small-12">
-                          <h3 className="slat-header">List and description of investigators and sites - 234567 - 00000003548</h3>
-                        </div>
-                      </div>
-                      <div className="row slat-subtitle"> {/* slat-title */}
-                        <div className="columns small-12">
-                          <p className="slat-title-wrapper">
-                            <span className="slat-subtitle-prefix">Title:</span>
-                            <span className="slat-subtitle-text">16.1.4 List of Investigators</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row show-for-medium">
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Modified By:</span>
-                            <span className="slat-attr-value">Jimmy Townsend</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Last Modified:</span>
-                            <span className="slat-attr-value">08/08/2016</span>
-                          </p>
-                        </div>
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Status:</span>
-                            <span className="slat-attr-value">Final</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Country:</span>
-                            <span className="slat-attr-value">Germany, United States</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slat-secondary columns shrink">
-                      <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-icon">
-                        <svg>
-                          <use xlinkHref="#i-star" />
-                        </svg>
-                      </span>
-                      <span className="float-right slat-dropdown">
-                        <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-more">
-                          <svg>
-                            <use xlinkHref="#i-more-vert" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>            <div href="#" className="slat row align-middle collapse  word" data-ref>
-                    <div className="slat-avatar item-avatar">
-                      <span className="ui-icon i-word i-xlarge ">
-                        <svg>
-                          <use xlinkHref="#i-file-word" />
-                        </svg>
-                      </span></div>
-                    <div className="slat-body expand columns">
-                      <div className="rows"> {/* slat-header */}
-                        <div className="columns small-12">
-                          <h3 className="slat-header">Clinical Summary - 25399</h3>
-                        </div>
-                      </div>
-                      <div className="row slat-subtitle"> {/* slat-title */}
-                        <div className="columns small-12">
-                          <p className="slat-title-wrapper">
-                            <span className="slat-subtitle-prefix">Title:</span>
-                            <span className="slat-subtitle-text">Clinical Summary of Efficacy and Safety for Ibuprofen</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row show-for-medium">
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Modified By:</span>
-                            <span className="slat-attr-value">Sophia Bishop</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Last Modified:</span>
-                            <span className="slat-attr-value">08/08/2016</span>
-                          </p>
-                        </div>
-                        <div className="columns small-12 medium-6">
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Status:</span>
-                            <span className="slat-attr-value">Final</span>
-                          </p>
-                          <p className="slat-attr-wrapper">
-                            <span className="slat-attr-key">Country:</span>
-                            <span className="slat-attr-value">Germany</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slat-secondary columns shrink">
-                      <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-icon">
-                        <svg>
-                          <use xlinkHref="#i-star" />
-                        </svg>
-                      </span>
-                      <span className="float-right slat-dropdown">
-                        <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-more">
-                          <svg>
-                            <use xlinkHref="#i-more-vert" />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>      </div>
+                <div className="browse-slat-set">{documentListHtml}</div>
               </div>
             </div>
           </div>
