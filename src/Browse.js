@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './exygy.svg';
 
 const documentsUrl = (searchString) => `http://exygy-challenge-backend.herokuapp.com/documents?search=${encodeURI(searchString)}&api_key=123`;
+let searchInputElement;
 
 class Browse extends React.Component {
   constructor() {
@@ -11,16 +12,23 @@ class Browse extends React.Component {
     }
 
     this.updateDocumentList = this.updateDocumentList.bind(this);
+    this.clearSearch = this.clearSearch.bind(this);
   }
 
   componentDidMount() {
+    searchInputElement = document.getElementById('textInput');
     this.updateDocumentList();
   }
 
   updateDocumentList() {
-    fetch(documentsUrl(document.getElementById('textInput').value || ''))
+    fetch(documentsUrl(searchInputElement.value || ''))
       .then(response => response.json())
       .then(documentsFromServer => this.setState({documents: documentsFromServer}));
+  }
+
+  clearSearch() {
+    searchInputElement.value = '';
+    this.updateDocumentList();
   }
 
   render() {
@@ -504,7 +512,7 @@ class Browse extends React.Component {
                       <use xlinkHref="#i-search" />
                     </svg>
                   </span>  <input type="text" id="textInput" className="search-box " placeholder="true" onChange={this.updateDocumentList} />
-                  <span className="ui-icon i-medium-gray i-base search-box-close-icon">
+                  <span className="ui-icon i-medium-gray i-base search-box-close-icon" onClick={this.clearSearch}>
                     <svg>
                       <use xlinkHref="#i-close-large" />
                     </svg>
