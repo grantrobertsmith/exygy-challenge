@@ -10,21 +10,16 @@ class Browse extends React.Component {
       documents: []
     }
     this.updateDocumentList = this.updateDocumentList.bind(this);
+  }
 
+  componentDidMount() {
     this.updateDocumentList();
   }
 
   updateDocumentList() {
-    const _this = this;
-
     fetch(documentsUrl(document.getElementById('textInput').value || ''))
-      .then(function(response) {
-          return response.json();
-      })
-      .then(function(documentsFromServer) {
-          _this.state.documents = documentsFromServer;
-          _this.render();
-      });
+      .then(response => response.json())
+      .then(documentsFromServer => this.setState({documents: documentsFromServer}));
   }
 
   render() {
