@@ -13,7 +13,6 @@
     "razzle": "0.8.14",
     "react": "16.3.0",
     "react-dom": "16.3.0",
-    "react-router-dom": "4.2.2",
-    "deep-equal": "1.0.1"
+    "react-router-dom": "4.2.2"
   }
 }

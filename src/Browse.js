@@ -1,13 +1,100 @@
 import React from 'react';
 import logo from './exygy.svg';
-import { documentList } from './documentList';
+
+const documentsUrl = (searchString) => `http://exygy-challenge-backend.herokuapp.com/documents?search=${encodeURI(searchString)}&api_key=123`;
 
 class Browse extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      documents: []
+    }
+    this.updateDocumentList = this.updateDocumentList.bind(this);
+
+    this.updateDocumentList();
+  }
+
   updateDocumentList() {
-    documentList.update();
+    const _this = this;
+
+    fetch(documentsUrl(document.getElementById('textInput').value || ''))
+      .then(function(response) {
+          return response.json();
+      })
+      .then(function(documentsFromServer) {
+          _this.state.documents = documentsFromServer;
+          _this.render();
+      });
   }
 
   render() {
+    const documentListHtml = this.state.documents.map(document => {
+      console.log(document);
+
+      return
+      (
+        <div href="#" className={"slat row align-middle collapse  " + document.type} data-ref>
+          <div className="slat-avatar item-avatar">
+            <span className={"ui-icon i-" + document.type + " i-xlarge "}>
+              <svg>
+                <use xlinkHref={"#i-file-" + document.type} />
+              </svg>
+            </span></div>
+          <div className="slat-body expand columns">
+            <div className="rows"> {/* slat-header */}
+              <div className="columns small-12">
+                <h3 className="slat-header">List and description of investigators and sites - 234567 - 00000003548</h3>
+              </div>
+            </div>
+            <div className="row slat-subtitle"> {/* slat-title */}
+              <div className="columns small-12">
+                <p className="slat-title-wrapper">
+                  <span className="slat-subtitle-prefix">Title:</span>
+                  <span className="slat-subtitle-text">16.1.4 List of Investigators</span>
+                </p>
+              </div>
+            </div>
+            <div className="row show-for-medium">
+              <div className="columns small-12 medium-6">
+                <p className="slat-attr-wrapper">
+                  <span className="slat-attr-key">Modified By:</span>
+                  <span className="slat-attr-value">Sophia Bishop</span>
+                </p>
+                <p className="slat-attr-wrapper">
+                  <span className="slat-attr-key">Last Modified:</span>
+                  <span className="slat-attr-value">08/08/2016</span>
+                </p>
+              </div>
+              <div className="columns small-12 medium-6">
+                <p className="slat-attr-wrapper">
+                  <span className="slat-attr-key">Status:</span>
+                  <span className="slat-attr-value">Final</span>
+                </p>
+                <p className="slat-attr-wrapper">
+                  <span className="slat-attr-key">Country:</span>
+                  <span className="slat-attr-value">Germany</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="slat-secondary columns shrink">
+            <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-icon">
+              <svg>
+                <use xlinkHref="#i-star" />
+              </svg>
+            </span>
+            <span className="float-right slat-dropdown">
+              <span className="ui-icon i-darker-gray i-sm-medium slat-secondary-more">
+                <svg>
+                  <use xlinkHref="#i-more-vert" />
+                </svg>
+              </span>
+            </span>
+          </div>
+        </div>
+      );
+    });
+
     return (
       <div>
         <svg style={{position: 'absolute', width: 0, height: 0, overflow: 'hidden'}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -423,7 +510,7 @@ class Browse extends React.Component {
                     <svg>
                       <use xlinkHref="#i-search" />
                     </svg>
-                  </span>  <input type="text" id="textInput" className="search-box " placeholder="true" onFocus={this.updateDocumentList} onChange={this.filterList} />
+                  </span>  <input type="text" id="textInput" className="search-box " placeholder="true" onChange={this.updateDocumentList} />
                   <span className="ui-icon i-medium-gray i-base search-box-close-icon">
                     <svg>
                       <use xlinkHref="#i-close-large" />
