@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export class Document extends React.Component {
+export class NavBar extends React.Component {
     render() {
         return (
             <nav className="top-bar nav-bar is-fixed">
